@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/v1/topics")
@@ -18,7 +19,7 @@ public class TopicController {
     }
 
     @GetMapping(path = "/topic/{topicId}")
-    public Topic getTopic(@PathVariable("topicId") String topic){
+    public Optional<Topic> getTopic(@PathVariable("topicId") String topic){
         return topicService.getTopic(topic);
     }
 
