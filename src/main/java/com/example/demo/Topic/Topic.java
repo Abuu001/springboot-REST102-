@@ -1,9 +1,18 @@
 package com.example.demo.Topic;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "stud_topics")  //Creates a table studtopics
 public class Topic {
 
+    @Id
     private String id;
     private String name;
+    @Column(name = "stud_description") //@Column is used to rename a column of a table
     private String description;
 
     public Topic() {
