@@ -16,10 +16,11 @@ public class CourseController {
 
     @GetMapping("{topicId}/courses")
     public List<Course> getAllCourses(@PathVariable("topicId") String id){
+
         return courseService.getAllCourses(id);
     }
 
-    @GetMapping(path = "/topic/{topicId}/courses/courseId")
+    @GetMapping(path = "/{topicId}/courses/{courseId}")
     public Optional<Course> getCourse(@PathVariable("courseId") String topic){
 
         return courseService.getCourse(topic);
