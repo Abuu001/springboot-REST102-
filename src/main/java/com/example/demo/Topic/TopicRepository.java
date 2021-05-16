@@ -1,2 +1,9 @@
-package com.example.demo.Topic;public interface TopicRepository {
+package com.example.demo.Topic;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface TopicRepository extends JpaRepository<Topic,String> {
+
 }
