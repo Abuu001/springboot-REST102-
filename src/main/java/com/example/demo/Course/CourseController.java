@@ -1,5 +1,6 @@
-package com.example.demo.Hello.Course;
+package com.example.demo.Course;
 
+import com.example.demo.Topic.Topic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,32 +12,38 @@ import java.util.Optional;
 public class CourseController {
 
     @Autowired
-    private TopicService topicService;
+    private CourseService courseService;
 
-    @GetMapping("alltopics")
-    public List<Course> getAllTopics(){
-        return topicService.getAllTopics();
+    @GetMapping("{topicId}/courses")
+    public List<Course> getAllCourses(@PathVariable("topicId") String id){
+        return courseService.getAllCourses(id);
     }
 
-    @GetMapping(path = "/topic/{topicId}")
-    public Optional<Course> getTopic(@PathVariable("topicId") String topic){
-        return topicService.getTopic(topic);
+    @GetMapping(path = "/topic/{topicId}/courses/courseId")
+    public Optional<Course> getCourse(@PathVariable("courseId") String topic){
+
+        return courseService.getCourse(topic);
     }
 
-    @PostMapping("/add/topic")
-    public void addTopic(@RequestBody Course newTopic){
-        topicService.addTopic(newTopic);
+    @PostMapping("/add/{topicId}/courses")
+    public void addCourse(@PathVariable("topicId") String topicId,
+                          @RequestBody Course course){
+        course.setTopic(new Topic(topicId,"",""));
+        courseService.addCourse(course);
     }
 
-    @PutMapping("/update/{topicId}")
-    public void updateTopic(
+    @PutMapping("/update/{topicId}/courses/{id}")
+    public void updateCourse(
+                           @PathVariable("id") String id,
                            @PathVariable String topicId,
-                           @RequestBody Course newTopic){
-        topicService.updateTopic(topicId,newTopic);
+                           @RequestBody Course course){
+        course.setTopic(new Topic(topicId,"",""));
+        courseService.updateCourse(course);
     }
 
-    @DeleteMapping("/delete/{topicId}")
-    public void deleteTopic(@PathVariable String topicId){
-        topicService.deleteTopic(topicId);
+    @DeleteMapping("/delete/{topicId}/courses/{id}")
+    public void deleteCourse(@PathVariable String topicId){
+
+        courseService.deleteCourse(topicId);
     }
 }
