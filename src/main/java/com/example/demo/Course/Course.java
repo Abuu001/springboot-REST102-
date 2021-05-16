@@ -3,10 +3,7 @@ package com.example.demo.Course;
 import com.example.demo.Topic.Topic;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "stud_topics")  //Creates a table studtopics
@@ -17,7 +14,9 @@ public class Course {
     private String name;
     @Column(name = "stud_description") //@Column is used to rename a column of a table
     private String description;
+
     @Autowired
+    @ManyToOne
     private Topic topic;
 
     public Course() {
