@@ -6,7 +6,7 @@ import java.time.Period;
 
 /*spring.jpa.properties.hibernate.dialect=org.hibernate.PostgreSQLDialect*/
 
-@Entity
+@Entity //make this class interact with our db
 @Table //you can set the name of ur table by @Table("stud")
 public class Student {
 

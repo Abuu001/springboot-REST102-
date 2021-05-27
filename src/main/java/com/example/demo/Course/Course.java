@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 
-@Entity
+@Entity //make this class interact with our db
 @Table(name = "stud_topics")  //Creates a table studtopics
 public class Course {
 

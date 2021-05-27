@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
+@Entity //make this class interact with our db
 @Table(name = "stud_topics")  //Creates a table studtopics
 public class Topic {
 
