@@ -47,8 +47,8 @@ spring:
       hibernate:
         format_sql: true
     show-sql: true
-welcome:
-  message: hi I am new to programming😍🥰😘
+
+welcome.message: hi I am new to programming😍🥰😘
 
 
 
