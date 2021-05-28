@@ -1,5 +1,7 @@
 package com.example.demo.Department;
 
+import com.example.demo.ErrorHandler.DepartmentNotFoundException;
+import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/department")
+@AllArgsConstructor
 public class DepartmentController {
 
     @Autowired
@@ -18,15 +21,15 @@ public class DepartmentController {
     //logging
     private final Logger LOGGER = LoggerFactory.getLogger(DepartmentController.class);
 
-
-    public DepartmentController(DepartmentService departmentService) {
-        this.departmentService = departmentService;
-    }
-
     @PostMapping
   public Department saveDepartment(@Valid @RequestBody Department newDepartment){
     LOGGER.info("..................Inside saveDepartment of DepartmentController....................");
     return departmentService.saveDepartment(newDepartment);
+  }
+
+  @GetMapping("/get/{departmentId}")
+  public Department getDepartmentById(@PathVariable("departmentId") Long departmentId) throws DepartmentNotFoundException {
+      return departmentService.getDepartmentById(departmentId);
   }
 
  @GetMapping
