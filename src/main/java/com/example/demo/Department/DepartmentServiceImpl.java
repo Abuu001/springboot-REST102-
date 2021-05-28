@@ -1,20 +1,20 @@
 package com.example.demo.Department;
 
+import com.example.demo.ErrorHandler.DepartmentNotFoundException;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class DepartmentServiceImpl implements DepartmentService{
 
     @Autowired
     private DepartmentRepository departmentRepository;
-
-    public DepartmentServiceImpl(DepartmentRepository departmentRepository) {
-        this.departmentRepository = departmentRepository;
-    }
 
     @Override
     public Department saveDepartment(Department newDepartment) {
@@ -28,6 +28,7 @@ public class DepartmentServiceImpl implements DepartmentService{
 
     @Override
     public void removeDeparment(Long departmentId) {
+
         departmentRepository.deleteById(departmentId);
     }
 
@@ -55,6 +56,16 @@ public class DepartmentServiceImpl implements DepartmentService{
     @Override
     public Department getDepartmentByName(String departmentName) {
         return departmentRepository.findByDepartmentName(departmentName);
+    }
+    @Override
+    public Department getDepartmentById(Long departmentId) throws DepartmentNotFoundException {
+      Optional<Department> department = departmentRepository.findById(departmentId);
+
+      if(!department.isPresent()){
+          throw new DepartmentNotFoundException("Department not available!!!");
+      }
+
+      return department.get();
     }
 
 }

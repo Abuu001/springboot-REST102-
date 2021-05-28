@@ -20,7 +20,7 @@ class DepartmentRepositoryTest {
 
     @BeforeEach
     void setUp() {
-      /*  Department department =
+   /*     Department department =
                 Department.builder()
                 .departmentName("Mechanical Engineer")
                 .departmentCode("Me -0021")
@@ -29,15 +29,15 @@ class DepartmentRepositoryTest {
 
         entityManager.persist(department);*/
 
-     //   Department department = new Department(1L,"Mechanical Engineer","Delhi","Me -0021");
+       Department department = new Department(1L,"Mechanical Engineer","Delhi","Me -0021");
 
-       // entityManager.persist(department);
+         entityManager.persist(department);
 
     }
 
     @Test
     public void whenFindByID_thenReturnDepartment(){
-      /*  Department department = departmentRepository.findById(1L).get();
-        assertEquals(department.getDepartmentName(),"Mechanical Engineer");*/
+        Department department = departmentRepository.findById(1L).get();
+        assertEquals(department.getDepartmentName(),"Mechanical Engineer");
     }
 }

@@ -27,17 +27,17 @@ class DepartmentControllerTest {
 
     @BeforeEach
     void setUp() {
-      /*  department = Department.builder()
+        department = Department.builder()
                 .departmentName("Software Engineer")
                 .departmentCode("ht -7821")
                 .departmentAddress("Msa")
                 .departmentId(1L)
-                .build();*/
+                .build();
     }
 
     @Test
-    void saveDepartment() {
-    /*  Department  inputDepartment = Department.builder()
+    void saveDepartment() throws Exception {
+      Department  inputDepartment = Department.builder()
                 .departmentName("Software Engineer")
                 .departmentCode("ht -7821")
                 .departmentAddress("Msa")
@@ -53,7 +53,7 @@ class DepartmentControllerTest {
                 "    \"departmentAddress\" : \"IT\",\n" +
                 "    \"departmentCode\" : \"002\"\n" +
                 "}"))
-        .andExpect(MockMvcResultMatchers.status().isOk());*/
+        .andExpect(MockMvcResultMatchers.status().isOk());
     }
 
     @Test
