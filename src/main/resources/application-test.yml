@@ -1,0 +1,16 @@
+spring:
+  profiles: test
+  datasource:
+    password: root
+    url: jdbc:postgresql://localhost:5432/springstudent
+    username: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+welcome:
+  message: hi I am new to programming😍🥰😘
