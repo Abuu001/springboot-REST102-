@@ -9,6 +9,6 @@ public class Springboot102Application {
 	public static void main(String[] args) {
 
 		SpringApplication.run(Springboot102Application.class, args);
-	}
+	} 
 
 }
