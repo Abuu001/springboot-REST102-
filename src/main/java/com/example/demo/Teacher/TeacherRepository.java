@@ -1,2 +1,7 @@
-package com.example.demo.Teacher;public interface TeacherRepository {
+package com.example.demo.Teacher;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TeacherRepository extends JpaRepository<Teacher,Long>{
+
 }
