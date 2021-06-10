@@ -1,7 +1,6 @@
 package com.example.demo.Customer;
 
- import com.example.demo.Product.ProductRepository;
- import lombok.AllArgsConstructor;
+  import lombok.AllArgsConstructor;
  import lombok.NoArgsConstructor;
  import org.springframework.beans.factory.annotation.Autowired;
  import org.springframework.web.bind.annotation.*;
